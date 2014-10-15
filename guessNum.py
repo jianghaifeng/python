@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+'a number guessing game'
+
 import random
 
 'generate a random number'

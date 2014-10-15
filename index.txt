@@ -1,0 +1,8 @@
+﻿--使用math模块
+	circumference.py
+--使用time模块
+	datetime.py
+--使用random模块
+	guessNum.py
+--循环while else
+	collatz.py

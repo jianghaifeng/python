@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+'an example of using time lib to get local time'
+
 import time
 
 m = time.localtime()

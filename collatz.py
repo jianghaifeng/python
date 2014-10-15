@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
+
+'考拉兹猜想-冰雹序列'
 
 numStr = input('Enter a positive integer: ')
 numInt = int(numStr)
