@@ -6,3 +6,5 @@
 	guessNum.py
 --循环while else
 	collatz.py
+--字符串操作
+	strings.py
