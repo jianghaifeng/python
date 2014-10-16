@@ -8,3 +8,4 @@
 	collatz.py
 --字符串操作
 	strings.py
+    idcheck.py
