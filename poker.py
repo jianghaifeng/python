@@ -2,19 +2,28 @@
 
 import random
 
-Card = '23456789XJQKA' 	#13 card
-Rank = 'RBFG' 		#Red, Black, Flower, Grid
-Royal = 'pP'		#poker and POKER
+class PokerCard(object):
+	def __init__(self, n, r):
+		self.name = n
+		self.rank = r
 
+
+CardCommon = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
+CardJokers = ['o','O']
+CardTypes = ['spade','heart','club','diamond']
 CardList = []
 CardCnt  = 54
 
+def initCardRank():
+	pass
+
 def initCardList():
-	for c in Card:
-		for r in Rank:
-			CardList.append(c+r)
-	for c in Royal:
-		CardList.append(c)
+	global CardList
+	for a in CardCommon:
+		for b in CardTypes:
+			CardList.append((a,b))
+	for c in CardJokers:
+		CardList.append((c,))
 
 def test_initCardList():
 	initCardList()
@@ -22,18 +31,18 @@ def test_initCardList():
 
 def printCard():
 	total = len(CardList)
-	print('there is %d cards, they are:' % len(CardList))
+	print('there are %d cards, they are:' % len(CardList))
 	for index in range(CardCnt):
-		if index % 4 == 0:
-			print()
 		print(CardList[index], end = ' ')
+		if (index+1) % 4 == 0:
+			print()
 	print()
 	
 def washCard():
+	global CardList
 	CardHeap = []
 	for i in range(CardCnt):
 		n = random.randint(0, CardCnt - i - 1)
-		global CardList
 		CardHeap.append(CardList.pop(n))
 	CardList = CardHeap
 
@@ -52,3 +61,4 @@ if __name__ == '__main__':
 	washCard()
 	printCard()
 	handCard(4)
+
