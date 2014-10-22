@@ -2,12 +2,6 @@
 
 import random
 
-class PokerCard(object):
-	def __init__(self, n, r):
-		self.name = n
-		self.rank = r
-
-
 CardCommon = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 CardJokers = ['o','O']
 CardTypes = ['spade','heart','club','diamond']
