@@ -9,5 +9,5 @@
 	collatz.py
 --字符串操作
 	usestring.py
-        idcheck.py
+	idcheck.py
 	poker.py
