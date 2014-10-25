@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 
+def calcAverage(dayLst):
+	sum_vc = 0
+	sum_v = 0
+	for item in dayLst:
+		sum_vc += item[1]*item[2]
+		sum_v += item[2]
+	if sum_v != 0:
+		return sum_vc/sum_v
+	else:
+		return 0
+
 def getMonthlyave(filename):
 	fileobj = open(filename, 'r')
 	dayLst = []
@@ -12,29 +23,16 @@ def getMonthlyave(filename):
 		closeprice = float(Lst[1].strip('"'))
 		volumn = float(Lst[2].strip('"'))
 		if cur_mon_str != his_mon_str:
-			sum_vc = 0
-			sum_v = 0
-			for eachDay in dayLst:
-				sum_vc += eachDay[1]*eachDay[2]
-				sum_v += eachDay[2]
-			if sum_v != 0:
-				aveprice = sum_vc/sum_v
-				monLst.append((his_mon_str, aveprice))
+			aveprice = calcAverage(dayLst)
+			monLst.append((his_mon_str, aveprice))
 			his_mon_str = cur_mon_str
 			dayLst.clear()
 			dayLst.append((cur_mon_str,closeprice,volumn))
 		else:
 			dayLst.append((cur_mon_str,closeprice,volumn))
 	else:
-		sum_vc = 0
-		sum_v = 0
-		for eachDay in dayLst:
-			sum_vc += eachDay[1]*eachDay[2]
-			sum_v += eachDay[2]
-		if sum_v != 0:
-			aveprice = sum_vc/sum_v
-			monLst.append((his_mon_str, aveprice))
-
+		aveprice = calcAverage(dayLst)
+		monLst.append((his_mon_str, aveprice))
 	return monLst
 
 
