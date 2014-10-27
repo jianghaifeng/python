@@ -17,8 +17,29 @@ def readTitle(f):
 	adict = dict(zip(alist,range(len(alist))))
 	return adict
 	
+def useropenfile():
+	opened = False
+	while not opened:
+		try:
+			filename = input('Enter the file name:')
+			try:
+				f = open(filename, 'r')
+				opened = True
+				return f
+			except IOError:
+				print('File opening failed, try again:')
+		except KeyboardInterrupt:
+			print('User quit')
+			return None
+			
 def getMonthlyave(filename):
-	fileobj = open(filename, 'r')
+	#fileobj = open(filename, 'r')
+	fileobj = useropenfile()
+	if not fileobj:
+		return []
+	fileobj.seek(0,2)
+	print('file has %d bytes' % fileobj.tell())
+	fileobj.seek(0)
 	adict = readTitle(fileobj)
 	dayLst = []
 	monLst = []
@@ -30,8 +51,9 @@ def getMonthlyave(filename):
 		closeprice = float(Lst[adict['close']].strip('"'))
 		volumn = float(Lst[adict['volume']].strip('"'))
 		if cur_mon_str != his_mon_str:
-			aveprice = calcAverage(dayLst)
-			monLst.append((his_mon_str, aveprice))
+			if his_mon_str != '':
+				aveprice = calcAverage(dayLst)
+				monLst.append((his_mon_str, aveprice))
 			his_mon_str = cur_mon_str
 			dayLst.clear()
 			dayLst.append((cur_mon_str,closeprice,volumn))
