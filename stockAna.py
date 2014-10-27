@@ -11,17 +11,24 @@ def calcAverage(dayLst):
 	else:
 		return 0
 
+def readTitle(f):
+	firstline = f.readline()
+	alist = firstline.strip().split(',')
+	adict = dict(zip(alist,range(len(alist))))
+	return adict
+	
 def getMonthlyave(filename):
 	fileobj = open(filename, 'r')
+	adict = readTitle(fileobj)
 	dayLst = []
 	monLst = []
 	his_mon_str = ''
 	for eachline in fileobj:
 		Lst = eachline.strip().split(',')
-		datestr = Lst[0].strip('"')
+		datestr = Lst[adict['date']].strip('"')
 		cur_mon_str = datestr[:7]
-		closeprice = float(Lst[1].strip('"'))
-		volumn = float(Lst[2].strip('"'))
+		closeprice = float(Lst[adict['close']].strip('"'))
+		volumn = float(Lst[adict['volume']].strip('"'))
 		if cur_mon_str != his_mon_str:
 			aveprice = calcAverage(dayLst)
 			monLst.append((his_mon_str, aveprice))
