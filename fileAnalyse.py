@@ -46,6 +46,7 @@ f = open('Gettysburg.txt', 'rU')
 speech = makeWordList(f)
 unique = makeUnique_useset(speech)
 wordDict = makewordDict(speech)
+f.close()
 
 print('the lecture has %d words' % len(speech))
 #print(sorted(unique))

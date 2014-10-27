@@ -33,6 +33,7 @@ def getMonthlyave(filename):
 	else:
 		aveprice = calcAverage(dayLst)
 		monLst.append((his_mon_str, aveprice))
+	fileobj.close()
 	return monLst
 
 
