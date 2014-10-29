@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 
 import random
+#class Cards
+#method Cards.Deck()
+#method Deck.shuffle()
+#method Deck.get_suite()
+#method Deck.get_rank()
+#method Deck.get_value()
+#method Deck.deal()
+#method Deck.empty()
 
 CardCommon = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 CardJokers = ['o','O']
