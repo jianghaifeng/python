@@ -5,6 +5,7 @@ def processfile(f):
 		return ''
 	while True:
 		linestr = f.readline().strip()
+		print(linestr)
 		if linestr.startswith('#'):
 			continue
 		elif len(linestr) == 0:
@@ -19,7 +20,7 @@ def openfile():
 	while True:
 		filename = input('Enter file name:')
 		try:
-			f = open(filename,'r',encoding='utf-8')
+			f = open(filename,'r')
 		except IOError:
 			print('Bad filename, try again')
 		else:

@@ -1,6 +1,6 @@
-ï»¿#!/usr/bin/env python
+#!/usr/bin/env python
 
-'è€ƒæ‹‰å…¹çŒœæƒ³-å†°é›¹åºåˆ—'
+'''¿¼À­×È²ÂÏë-±ù±¢ĞòÁĞ'''
 
 numStr = input('Enter a positive integer: ')
 numInt = int(numStr)
