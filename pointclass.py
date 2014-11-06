@@ -16,6 +16,10 @@ class Point(object):
 		return Point(xnew, ynew)
 	def __str__(self):
 		return '(%.2f,%.2f)' % (self.x, self.y)
+	def __add__(self, p):
+		xnew = self.x + p.x
+		ynew = self.y + p.y
+		return Point(xnew, ynew)
 
 def test():
 	pointa = Point(1,2)
@@ -24,5 +28,6 @@ def test():
 	print('point b:', pointb)
 	print('distance of a and b:', pointa.distance(pointb))
 	print('sum of a and b:', pointa.sum(pointb))
+	print('a+b:', pointa+pointb)
 
 test()
